@@ -5,10 +5,11 @@ import {
   OnDestroy,
 } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { Task } from 'src/app/task.model';
+
 import { Store, select } from '@ngrx/store';
-import * as fromReducer from 'src/app/reducers/';
-import * as fromAction from 'src/app/task.actions';
+import * as fromReducer from '../../store/reducers';
+import * as fromAction from '../../store/task.actions';
+import { Task } from '../../store/task.model';
 
 @Component({
   selector: 'app-task-container',

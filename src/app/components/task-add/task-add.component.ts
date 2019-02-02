@@ -5,8 +5,8 @@ import {
   FormGroup,
 } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { Task } from '../../task.model';
-import { AddTask } from 'src/app/task.actions';
+import { Task } from '../../store/task.model';
+import { AddTask } from 'src/app/store/task.actions';
 import { UUID } from 'angular2-uuid';
 @Component({
   selector: 'app-task-add',

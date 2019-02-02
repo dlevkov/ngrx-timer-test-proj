@@ -4,7 +4,7 @@ import {
   createSelector,
   MetaReducer,
 } from '@ngrx/store';
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
 import * as fromTask from './task.reducer';
 
 export interface State {
@@ -17,7 +17,8 @@ export const reducers: ActionReducerMap<State> = {
 
 export const selectActiveTaskId = createSelector(
   (state: State) => state.tasks,
-  fromTask.getActiveTaskId);
+  fromTask.getActiveTaskId
+);
 
 export const {
   selectAll,

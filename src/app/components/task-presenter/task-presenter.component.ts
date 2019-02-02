@@ -5,7 +5,7 @@ import {
   EventEmitter,
   ChangeDetectionStrategy,
 } from '@angular/core';
-import { Task } from 'src/app/task.model';
+import { Task } from 'src/app/store/task.model';
 
 @Component({
   selector: 'app-task-presenter',

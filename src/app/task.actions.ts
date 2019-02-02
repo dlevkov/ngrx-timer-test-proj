@@ -3,11 +3,13 @@ import { Update } from '@ngrx/entity';
 import { Task } from './task.model';
 
 export enum TaskActionTypes {
-  AddTask = '[Task] Add Task',
-  UpdateTask = '[Task] Update Task',
+  AddTask = '[Task API] Add Task',
+  UpdateTask = '[Task API] Update Task',
+  SetTaskElapsedSeconds = '[Task API] Set Task elapsed seconds',
+  PlayTask = '[Task UI] Play Task requested',
+  PauseTask = '[Task UI] Pause Task requested',
+  SetActiveTaskId = '[Task API] Set active Task id',
 }
-
-
 
 export class AddTask implements Action {
   readonly type = TaskActionTypes.AddTask;
@@ -20,5 +22,31 @@ export class UpdateTask implements Action {
 
   constructor(public payload: { task: Update<Task> }) {}
 }
+export class PlayTask implements Action {
+  readonly type = TaskActionTypes.PlayTask;
 
-export type TaskActions =  AddTask | UpdateTask;
+  constructor(public payload: { taskId: string }) {}
+}
+export class PauseTask implements Action {
+  readonly type = TaskActionTypes.PauseTask;
+
+  constructor(public payload: { taskId: string }) {}
+}
+export class SetTaskElapsedSeconds implements Action {
+  readonly type = TaskActionTypes.SetTaskElapsedSeconds;
+
+  constructor(public payload: { taskId: string, elapsedSeconds: number }) {}
+}
+export class SetActiveTaskId implements Action {
+  readonly type = TaskActionTypes.SetActiveTaskId;
+
+  constructor(public payload: { taskId: string }) {}
+}
+
+export type TaskActions =
+  | AddTask
+  | UpdateTask
+  | SetTaskElapsedSeconds
+  | PlayTask
+  | PauseTask
+  | SetActiveTaskId;

@@ -1,7 +1,7 @@
 <mat-card>
   <app-task-presenter
-    *ngFor="let task of tasks$ | async"
-    [task]="task"
+    *ngFor="let task of tasks$ | async; index as i; trackBy: trackByFn"
+    [task]="task" [isActive]="givenTaskIsActive(task.id)"
     (clicked)="onClick($event)"
   ></app-task-presenter>
 </mat-card>
@@ -10,3 +10,4 @@
     Total: {{ totalTime$ | async | minuteSeconds }}
   </mat-card-title>
 </mat-card>
+

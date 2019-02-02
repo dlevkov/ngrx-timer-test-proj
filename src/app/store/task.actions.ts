@@ -4,7 +4,6 @@ import { Task } from './task.model';
 
 export enum TaskActionTypes {
   AddTask = '[Task API] Add Task',
-  UpdateTask = '[Task API] Update Task',
   SetTaskElapsedSeconds = '[Task API] Set Task elapsed seconds',
   PlayTask = '[Task UI] Play Task requested',
   PauseTask = '[Task UI] Pause Task requested',
@@ -17,11 +16,6 @@ export class AddTask implements Action {
   constructor(public payload: { taskName: string, selectId: string }) {}
 }
 
-export class UpdateTask implements Action {
-  readonly type = TaskActionTypes.UpdateTask;
-
-  constructor(public payload: { task: Update<Task> }) {}
-}
 export class PlayTask implements Action {
   readonly type = TaskActionTypes.PlayTask;
 
@@ -45,7 +39,6 @@ export class SetActiveTaskId implements Action {
 
 export type TaskActions =
   | AddTask
-  | UpdateTask
   | SetTaskElapsedSeconds
   | PlayTask
   | PauseTask

@@ -28,10 +28,6 @@ export function reducer(state = initialState, action: TaskActions): State {
         state
       );
     }
-
-    case TaskActionTypes.UpdateTask: {
-      return adapter.updateOne(action.payload.task, state);
-    }
     case TaskActionTypes.PlayTask: {
       return { ...state, activeTaskId: action.payload.taskId };
     }

@@ -15,22 +15,24 @@ export const reducers: ActionReducerMap<State> = {
   tasks: fromTask.reducer,
 };
 
-export const getActiveTaskId = createSelector(fromTask.getActiveTaskId);
+export const selectActiveTaskId = createSelector(
+  (state: State) => state.tasks,
+  fromTask.getActiveTaskId);
 
 export const {
   selectAll,
   selectEntities: getTaskEntities,
 } = fromTask.adapter.getSelectors((state: State) => state.tasks);
 
-export const getAllTasks = createSelector(
+export const selectAllTasks = createSelector(
   (state: State) => state.tasks,
   fromTask.selectAll
 );
 export const getTimers = createSelector(
-  getAllTasks,
+  selectAllTasks,
   x => x.map(y => y.elapsedSeconds)
 );
-export const getTotal = createSelector(
+export const selectTotalElapsedSeconds = createSelector(
   getTimers,
   timers => timers.reduce((x, y) => x + y, 0)
 );

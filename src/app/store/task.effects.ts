@@ -1,16 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 
-import { TaskActionTypes, AddTask } from './task.actions';
+import * as fromActions from './task.actions';
 import { map } from 'rxjs/operators';
+import { TimerService } from '../timer.service';
 
 @Injectable()
 export class TaskEffects {
-  constructor(private actions$: Actions) {}
+  constructor(private actions$: Actions, private timerService: TimerService) {
+    this.timerService.initTimer();
+  }
 
-  @Effect()
-  loadTasks$ = this.actions$.pipe(
-    ofType<AddTask>(TaskActionTypes.UpdateTask),
-    map(x => console.log(x.payload.taskName))
-  );
 }

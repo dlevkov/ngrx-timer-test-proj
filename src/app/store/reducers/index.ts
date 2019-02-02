@@ -37,6 +37,11 @@ export const selectTotalElapsedSeconds = createSelector(
   getTimers,
   timers => timers.reduce((x, y) => x + y, 0)
 );
+export const selectActiveTask = createSelector(
+  selectAllTasks,
+  selectActiveTaskId,
+  (tasks, id) => tasks.find(x => x.id === id)
+);
 export const metaReducers: MetaReducer<State>[] = !environment.production
   ? []
   : [];

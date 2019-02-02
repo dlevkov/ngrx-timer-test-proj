@@ -12,13 +12,13 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ### State
 
-```json
+```js
 {
-tasks: Entity {
+  tasks: Entity {
   id: Number,
   taskName: string,
   elapsedSeconds: Number
-},
+  },
 activeTaskId: Number
 }
 ```

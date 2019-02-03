@@ -28,12 +28,10 @@ export function reducer(state = initialState, action: TaskActions): State {
         state
       );
     }
-    case TaskActionTypes.PlayTask: {
+    case TaskActionTypes.ChangeActiveTaskId: {
       return { ...state, activeTaskId: action.payload.taskId };
     }
-    case TaskActionTypes.PauseTask: {
-      return { ...state, activeTaskId: taskIdDefaultValue };
-    }
+
     case TaskActionTypes.SetTaskElapsedSeconds: {
       return adapter.updateOne(
         {
